@@ -1,11 +1,12 @@
-require_relative './bike.rb'
+# require_relative './bike.rb'
 
 class Station
- attr_reader :bike_list
- attr_reader :station_max
- attr_accessor :amount_of_bikes
+ # attr_reader :bike_list
+ # attr_reader :station_max
+ # attr_accessor :amount_of_bikes
  # attr_accessor :working_bike
-
+attr_accessor :working_bike_list
+attr_accessor :broken_bike_list
  # def amount_of_bikes=(value)
  # 	@amount_of_bikes = value
  # end
@@ -26,15 +27,14 @@ class Station
 
 	def working?(bike)
 		# @bike=bike
-		bike=='bike'
+		bike == 'bike'
 	end
 
 	def receive_a_bike(bike)
 		if station_full?
 			return nil
 		elsif working?(bike)
-			
-			@working_bike_list.push('bike')
+			@working_bike_list.push('bike') 
 		else 
 			@broken_bike_list.push('broken bike')
 		end
@@ -42,7 +42,7 @@ class Station
 
 	def station_full?
 	@amount_of_bikes=@working_bike_list.count + @broken_bike_list.count
-		amount_of_bikes == @station_max
+		@amount_of_bikes == @station_max
 	end
 end
    

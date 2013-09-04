@@ -21,8 +21,8 @@ describe Station do
 		expect(station.working?('broken bike')).to be_false
 	end
 
-	it 'place a working bike into the working bike list' do
-		expect(station.receive_a_bike('bike').push).to eq ['bike','bike','bike']
+	it 'places a working bike into the working bike list' do
+		expect(station.receive_a_bike('bike').push).to eq(['bike','bike','bike'])
 	end
 
 	it 'place a broken bike into the broken bike list' do
@@ -31,11 +31,11 @@ describe Station do
 
 	it 'cannot put broken bike into working bike list' do
 		# expect(station.receive_a_bike).to raise_error NameError, "Did not add bike to list"
-		expect(station.receive_a_bike('broken_bike')).to_not ["bike","bike","bike"]
+		expect(station.receive_a_bike('broken_bike')).to_not eq ["bike","bike","bike"]
 	end
 
 	it 'cannot put working bike into broke bike list' do
-		expect(station.receive_a_bike('bike')).to_not ["broken_bike","broken_bike","broken_bike"]
+		expect(station.receive_a_bike('bike')).to_not eq ["broken_bike","broken_bike","broken_bike"]
 	end
 
 	it 'checks if station is not full' do
