@@ -29,21 +29,17 @@ describe Station do
 
 	it'can receive a bike from rider or van'do
 	   expect(station.receive_a_bike.count).to eq(station.amount_of_bikes + 1)
-	
+	end
+
+	it 'collect all broken bikes'do
+	end 
+
+	it 'let van take the broken bikes away' do
 	end
 
     # it'receive some bikes from van'do
     
     # end 
-
-	it 'collect all broken bikes'do
-
-	end 
-
-	it 'let van take the broken bikes away' do
-	
-	end
-
 	# it 'forbids van to dock bike when full' do
 	# 	expect
 		

@@ -14,6 +14,7 @@ class Station
 		@bike_list = ['bike','bike','bike','bike']
 		@amount_of_bikes=@bike_list.count
 	end
+
 	def release_a_bike(bike_list,bike)
 		# bike=Bike.new
 		if bike.condition?
@@ -23,14 +24,15 @@ class Station
 
 		end
 	end
+
 	def receive_a_bike
 		if station_full?
 			return nil
 		else
 			@bike_list.push('bike')
 		end
-		
 	end
+	
 	def station_full?
 	
 		amount_of_bikes == @station_max
