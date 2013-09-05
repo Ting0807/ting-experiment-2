@@ -35,7 +35,6 @@ describe Rider do
 	it 'can rent a bike from a station' do 
 		station = double :station
 		station.should_receive(:release_a_working_bike)
-
 		rider.rent_a_bike(station)
 	end
 
@@ -46,7 +45,6 @@ describe Rider do
 	end
 
     it'cannot rent a bike if the station is empty'do
-
 	    empty_station = double(:empty_station,{release_a_working_bike: nil})
 		expect(rider.rent_a_bike(empty_station)).to eq [nil]
        
@@ -59,7 +57,6 @@ describe Rider do
 	end
 
     it 'can drop off a bike' do 
-
     	station=double(:station, {receive_a_bike: :bike})
     	rider.return_a_bike(station)
 	# it 'has a bike after renting'do
@@ -73,7 +70,6 @@ describe Rider do
     	station=double(:station, {receive_a_bike: :nil})
     	rider.return_a_bike(station)
     	expect(rider).to have_a_bike
-    	
 	end
 
 
@@ -86,7 +82,7 @@ describe Rider do
     end
    
     it'can break a bike'do
-	    station=tation=double(:station,{release_a_working_bike: 'bike'})
+	    station=double(:station,{release_a_working_bike: 'bike'})
 	    expect(rider.break_a_bike(station)).to eq(['broken bike'])
 	end
    	

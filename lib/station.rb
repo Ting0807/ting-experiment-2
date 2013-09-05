@@ -1,4 +1,4 @@
-# require_relative './bike.rb'
+require_relative './bike.rb'
 
 class Station
  # attr_reader :bike_list
@@ -11,11 +11,29 @@ attr_accessor :broken_bike_list
  # 	@amount_of_bikes = value
  # end
 
-	def initialize(working_bike_list, broken_bike_list, station_max)
-		@working_bike_list=working_bike_list
-		@broken_bike_list=broken_bike_list
+	def initialize(number_of_working_bikes, number_of_broken_bikes,station_max)
 		@station_max = station_max
+		@bike = Bike.new(true)
+		@working_bike_list = [] 
+		@number_of_working_bikes=number_of_working_bikes
+     @working_bike_list=adding_bike_to_list(@working_bike_list, @bike, @number_of_working_bikes)
+		@broken_bike = Bike.new(false)
+		@broken_bike_list = []
+		@number_of_broken_bikes=number_of_broken_bikes
+		@broken_bike_list=adding_bike_to_list(@broken_bike_list, @broken_bike, @number_of_broken_bikes)
 	end
+
+
+	def adding_bike_to_list(bike_list,bike,number_of_bike)
+		n = 0
+		while n < number_of_bike
+			bike_list.push(bike)
+			n += 1
+		end 
+	end
+# @bike_list=bike_list
+# @bike=bike
+# @number_of_bike=number_of_bike
 
 	def releases_a_working_bike
 		@working_bike_list.pop 
@@ -25,9 +43,8 @@ attr_accessor :broken_bike_list
 		@broken_bike_list.pop
 	end
 
-	def working?(bike)
-		# @bike=bike
-		bike == 'bike'
+	def working?
+		@bike.is_working?
 	end
 
 	def receive_a_bike(bike)

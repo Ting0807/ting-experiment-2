@@ -1,7 +1,7 @@
 require 'station'
 
 describe Station do
-	let(:station){Station.new(['bike','bike'],['broken bike','broken bike'],6)}
+	let(:station){Station.new(2,2,6)}
 
 	it 'releases a bike from the working bike list' do
 		expect(station.releases_a_working_bike).to eq 'bike'

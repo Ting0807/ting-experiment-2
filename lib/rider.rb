@@ -20,7 +20,7 @@ attr_accessor :bike
 	end
 
 	def has_a_bike?
-       @bike != [nil]
+        @bike != [nil]
     end
 
     def empty?(station)
